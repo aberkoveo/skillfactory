@@ -1,3 +1,9 @@
+"""
+Модуль является результатом оптимизации существующего ранее решения в рамках учебного проекта 0
+в SkillFactory (школа веб-курсов).
+
+"""
+
 import numpy as np
 
 
@@ -20,7 +26,7 @@ def game_core_v3(number):
        во вдвое меньшем диапазоне значений. Функция принимает загаданное число и возвращает число попыток"""
 
     count = 1
-    predict = 50  # np.random.randint(1,101)
+    predict = 50  # np.random.randint(1,101) Начинаем угадывать с середины диапазона значений, сокращая кол-во попыток
     predict_array = [0, 100]
 
     while number != predict:
@@ -31,8 +37,6 @@ def game_core_v3(number):
         elif number < predict:
             predict_array[1] = predict
             predict = round(sum(predict_array) / 2)
+
     return count  # выход из цикла, если угадали
 
-
-# Проверяем
-score_game(game_core_v3)
