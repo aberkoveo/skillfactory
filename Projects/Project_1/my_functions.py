@@ -7,11 +7,6 @@
 import pandas as pd
 from collections import Counter
 
-# data = pd.read_csv('E:\\DEVgit\\skillfactory\\Projects\\Project_1\\input\\imbd-sf\\data.csv')
-# data.drop(['imdb_id', 'tagline', 'overview', 'production_companies'], axis=1, inplace=True)
-# data['profit'] = data.revenue - data.budget
-# data['cast'] = data.cast.str.split('|')
-
 
 def expand_df(df, bycolumn):
     """
@@ -57,26 +52,3 @@ def season_by_intmonth(intmonth):
         if intmonth in seasons[season]:
             return season
     return 'season not defined'
-
-# print(expand_df(data[data.release_year==2012], 'cast').info())
-# print(expand_df(data, 'cast').groupby(['cast_divided']).profit.sum().sort_values(ascending=False).head(1))
-#print(expand_df(data, 'cast'))
-#print(expand_df(data, 'director').groupby('director_divided').profit.sum().sort_values(ascending=False).head(1))
-# print(data[data.release_year==2012].reset_index())
-
-# data_35 = data.copy()
-# data_35 = expand_df(data_35, 'cast')
-
-
-
-# c = Counter()
-
-
-# grouped_data = data_35[['cast_divided', 'cast']].groupby('cast_divided').agg({'cast': sum}).reset_index()
-
-
-# for index, row in grouped_data.iterrows():
-#     for i in range(len(row['cast'])):
-
-#         c[tuple([row['cast_divided'], row['cast'][i]])] += 1
-
