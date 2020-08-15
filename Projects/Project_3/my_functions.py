@@ -31,7 +31,8 @@ def get_boxplot(data, column, target):
 
 def review_text_tone(review):
     text_tone_coef = 0
-
+    text_tone_coef_good = 1
+    text_tone_coef_bad = 1
     good_words = set(['lovely','very good', 'excellent', 'best', 'nice', 'great','beautifull',
                       'awesome', 'awsom', 'yummy', 'friendly', 'not bad', 'well', 'tasty',
                       'good experience', 'perfect', 'wonderful', 'pleasant', 'helpful', 'cosy',
@@ -45,12 +46,13 @@ def review_text_tone(review):
     for word in good_words:
         for rev in review:
             if word in rev.lower():
-                text_tone_coef += 0.5
+                text_tone_coef_good *= 2
 
     for word in bad_words:
         for rev in review:
             if word in rev.lower():
-                text_tone_coef -= 0.5
+                text_tone_coef_bad *= 2
+    text_tone_coef = text_tone_coef_good - text_tone_coef_bad
 
     return text_tone_coef
 
