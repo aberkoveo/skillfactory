@@ -45,12 +45,12 @@ def review_text_tone(review):
     good_words = set(['lovely','very good', 'excellent', 'best', 'nice', 'great','beautifull',
                       'awesome', 'awsom', 'yummy', 'friendly', 'not bad', 'well', 'tasty',
                       'good experience', 'perfect', 'wonderful', 'pleasant', 'helpful', 'cosy',
-                      'healthy', 'cute', 'fantastic'])
+                      'healthy', 'cute', 'fantastic', 'amazing'])
 
     bad_words = set(['what the heck', 'waste', 'really bad', 'please try another', 
                      'avoid at all cost', 'terrible', 'worst', 'Not good', 'bad service',
                      'dirty', 'shabby', 'confused', 'disappointing', 'rude', 'no go', 
-                     'slow service', 'awful', 'disgusting'])
+                     'slow service', 'awful', 'disgusting' , 'horrid', 'horrible'])
     
     for word in good_words:
         for rev in review:
