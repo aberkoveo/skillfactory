@@ -9,6 +9,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
 from itertools import combinations
 from scipy.stats import ttest_ind
 from datetime import datetime
@@ -72,6 +73,10 @@ def diff_today(date_list):
         dif_today = (datetime.today().date() - max(date_list)).days
     return dif_today
 
+def round_rating(rating_long):
+    rating_list = np.arange(1,5.5,0.5)
+    rating_dif = abs(rating_list - rating_long)
+    return rating_list[np.argmin(rating_dif)]
 
 def prepoc_data(data_input):
 
