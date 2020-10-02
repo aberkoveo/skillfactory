@@ -1,16 +1,20 @@
+from pandas import Series
 import pandas as pd
+import numpy as np
+
 import matplotlib.pyplot as plt
 import seaborn as sns
-import numpy as np
-from itertools import combinations
-from scipy.stats import ttest_ind
-from datetime import datetime
+# %matplotlib inline
 
-from collections import Counter
-from datetime import datetime
-import re
-import ast
-from scipy import stats
+from sklearn.feature_selection import f_classif, mutual_info_classif
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder, StandardScaler
+
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from os import listdir
+
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import auc, roc_auc_score, roc_curve
 
 
 
