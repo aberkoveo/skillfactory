@@ -19,10 +19,10 @@ from sklearn.metrics import auc, roc_auc_score, roc_curve
 
 
 class df_scrolling_object():
-    def __init__(self):
+    def __init__(self, data):
         # input_folder = 'input/'
-        self.data = pd.read_csv('input/train.csv')
-        self.data.drop(['client_id'],  axis=1, inplace=True)
+        self.data = data.copy() #pd.read_csv('input/train.csv')
+        self.data.drop(['client_id'],  axis=1, inplace=True, errors='ignore')
         data = self.data.copy()
         self.bin_cols = ['good_work', 'foreign_passport', 'car', 'car_type', 'sex']
         self.num_cols = ['age', 'decline_app_cnt', 'bki_request_cnt', 'income']
@@ -59,6 +59,7 @@ class df_scrolling_object():
         label_encoder = LabelEncoder()
         for bin_col in self.bin_cols:
             data[bin_col] = label_encoder.fit_transform(data[bin_col])
+            
         self.X_cat = OneHotEncoder(sparse = False).fit_transform(data[self.cat_cols].values)
         self.X_num = StandardScaler().fit_transform(data[self.num_cols].values)
         self.X = np.hstack([self.X_num, data[self.bin_cols].values, self.X_cat])
