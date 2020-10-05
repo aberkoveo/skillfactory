@@ -33,6 +33,16 @@ def get_boxplot(data, column, target):
     ax.set_title('Boxplot for ' + column, fontsize=23)
     plt.show()
 
+def hist_cat_num(data_df, cat_col, num_col, title):
+    
+    fig, ax = plt.subplots(figsize = (12, 7))
+    ax.set_title(title, fontsize=23)
+    plt.xlabel(num_col, fontsize=18)
+    plt.ylabel(f'{cat_col} count', fontsize=18)
+    for cat_uniq in data_df[cat_col].unique():
+        data_df[(data_df[cat_col] == cat_uniq)][num_col].hist(bins=100, label=f'{cat_col}:{cat_uniq} / {num_col}')
+        plt.title=title
+        plt.legend()
 
 def outlier_treatment(datacolumn):
  sorted(datacolumn)
