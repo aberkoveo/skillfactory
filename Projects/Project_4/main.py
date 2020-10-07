@@ -12,11 +12,12 @@ class df_scrolling_object():
         self.bin_cols = ['good_work', 'foreign_passport', 'car', 'car_type', 'sex' ]
         self.num_cols = ['age', 'decline_app_cnt', 'bki_request_cnt', 'income', 'score_bki']
         self.cat_cols = ['education', 'home_address' , 'work_address', 'first_time', 'sna' , 
-                         'region_rating', 'region_age']
+                         'region_rating']
         self.new_num_cols = ['sna_age', 'age_foreign_pass', 
                              'month', 'day', 'year', 'app_date_diff_today', 'age_first',
                              'age_eduaction', 'age_good_work',
-                             'work_adr_age', 'bki_cnt_word_adr', 'bki_cnt_first_time', ]
+                             'work_adr_age', 'bki_cnt_word_adr', 'bki_cnt_first_time', 
+                             'region_age']
         self.edu_income_rel = dict({'SCH': list([0, 31960.275039]),
                                     'UGR': list([31960.275039,39391.796251]),
                                     'GRD': list([39391.796251, 54663.948941]),
@@ -29,8 +30,8 @@ class df_scrolling_object():
 
 
         edu_dict = dict({'SCH': 0,  #school
-                         'GRD': 1,  #out-student
-                         'UGR': 2,  #student
+                         'GRD': 2,  #out-student
+                         'UGR': 1,  #student
                          'PGR': 3,  #aspirant
                          'ACD': 4}) #academic 
         self.data['education'] = self.data['education'].map(edu_dict)
@@ -97,16 +98,18 @@ class df_scrolling_object():
         return data
 
 
-    def return_X(self):
+    def return_X_test(self):
         data = self.log_std_dummies_data(self.preproc_data())
         # data = self.log_std_dummies_data(data)
-        X = data.drop(['default'], axis=1)
+        data = data[data.train==0]
+        X = data.drop(['default'], axis=1, errors='ignore')
         return X
 
 
-    def return_XY(self):
+    def return_XY_train(self):
         data = self.log_std_dummies_data(self.preproc_data())
         # data = self.log_std_dummies_data(data)
+        data = data[data.train==1]
         X = data.drop(['default'], axis=1)
         Y = data['default'].values
         return X, Y
