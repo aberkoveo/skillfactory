@@ -12,7 +12,7 @@ class df_scrolling_object():
         self.bin_cols = ['good_work', 'foreign_passport', 'car', 'car_type', 'sex' ]
         self.num_cols = ['age', 'decline_app_cnt', 'bki_request_cnt', 'income', 'score_bki']
         self.cat_cols = ['education', 'home_address' , 'work_address', 'first_time', 'sna' , 
-                         'region_rating']
+                         'region_rating', 'car_type_full']
         self.new_num_cols = ['sna_age', 'age_foreign_pass', 
                              'month', 'day', 'year', 'app_date_diff_today', 'age_first',
                              'age_eduaction', 'age_good_work',
@@ -62,6 +62,14 @@ class df_scrolling_object():
         data['score_bki_work_adr'] = data['score_bki'] - data['work_address']
         data['bki_cnt_first_time'] = data['bki_request_cnt'] * data['first_time']
         data['region_age'] = data['age'] * (data['decline_app_cnt'])
+
+        lambda_bin = lambda x: 1 if 'Y' else 0
+        data['car_type_full'] =  data['car_type'].apply(lambda_bin) + data['car'].apply(lambda_bin)
+
+
+
+
+
         # добавим новый признак к списку категорий, чтобы он попал на логарифмирование и стандартизацию
         self.num_cols = self.num_cols + ['region_firstt']
         return data

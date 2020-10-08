@@ -1,6 +1,7 @@
+.ipynb_checkpoints
 .idea
 /**/**/__pycache__
+
 /**/**/baseline_EDA.ipynb
 .vscode/settings.json
-
 /**/.vscode
