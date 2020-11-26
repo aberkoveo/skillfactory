@@ -5,3 +5,9 @@
 /**/**/baseline_EDA.ipynb
 .vscode/settings.json
 /**/.vscode
+
+*catboost_info
+#Projects/Project_5/data_versions
+#Projects/Project_5/kaggle/*
+
+*.csv
