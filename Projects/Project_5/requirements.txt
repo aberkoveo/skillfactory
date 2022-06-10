@@ -50,7 +50,7 @@ conda-package-handling==1.7.0
 conda-verify==3.4.2
 confuse==1.0.0
 contextlib2==0.6.0.post1
-cookiecutter==1.7.2
+cookiecutter==2.1.1
 cryptography @ file:///C:/ci/cryptography_1601046913206/work
 cufflinks==0.17.3
 cycler==0.10.0
