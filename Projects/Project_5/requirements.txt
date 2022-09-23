@@ -186,7 +186,7 @@ ply==3.11
 poyo==0.5.0
 prometheus-client==0.8.0
 prompt-toolkit @ file:///tmp/build/80754af9/prompt-toolkit_1598885458782/work
-protobuf==3.13.0
+protobuf==3.18.3
 psutil @ file:///C:/ci/psutil_1598352273540/work
 py @ file:///tmp/build/80754af9/py_1593446248552/work
 pyasn1==0.4.8
