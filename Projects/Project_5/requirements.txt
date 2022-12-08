@@ -35,7 +35,7 @@ brotlipy==0.7.0
 bz2file==0.98
 cachetools @ file:///home/conda/feedstock_root/build_artifacts/cachetools_1593420445823/work
 catboost @ https://pypi.org/packages/cp37/c/catboost/catboost-0.24.2-cp37-none-win_amd64.whl
-certifi==2020.11.8
+certifi==2022.12.7
 cffi @ file:///C:/ci/cffi_1600699250966/work
 chardet==3.0.4
 click==7.1.2
